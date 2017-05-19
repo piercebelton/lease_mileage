@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Initial lease date:</strong>
+  <%= @lease.initial_lease_date %>
+</p>
+
+<p>
+  <strong>Miles per year:</strong>
+  <%= @lease.miles_per_year %>
+</p>
+
+<p>
+  <strong>Lease term:</strong>
+  <%= @lease.lease_term %>
+</p>
+
+<%= link_to 'Edit', edit_lease_path(@lease) %> |
+<%= link_to 'Back', leases_path %>

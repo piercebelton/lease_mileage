@@ -1,0 +1,32 @@
+<%= form_for(lease) do |f| %>
+  <% if lease.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(lease.errors.count, "error") %> prohibited this lease from being saved:</h2>
+
+      <ul>
+      <% lease.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :initial_lease_date %>
+    <%= f.datetime_select :initial_lease_date %>
+  </div>
+
+  <div class="field">
+    <%= f.label :miles_per_year %>
+    <%= f.number_field :miles_per_year %>
+  </div>
+
+  <div class="field">
+    <%= f.label :lease_term %>
+    <%= f.number_field :lease_term %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
