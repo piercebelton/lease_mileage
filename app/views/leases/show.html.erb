@@ -15,5 +15,10 @@
   <%= @lease.lease_term %>
 </p>
 
+<p>
+  <strong>Projected Mileage:</strong>
+  <%= @lease.projected_mileage %>
+</p>
+
 <%= link_to 'Edit', edit_lease_path(@lease) %> |
 <%= link_to 'Back', leases_path %>

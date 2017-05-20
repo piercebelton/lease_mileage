@@ -16,9 +16,10 @@ ActiveRecord::Schema.define(version: 20170519025849) do
   enable_extension "plpgsql"
 
   create_table "leases", force: :cascade do |t|
-    t.datetime "initial_lease_date"
+    t.date     "initial_lease_date"
     t.integer  "miles_per_year"
     t.integer  "lease_term"
+    t.integer  "projected_mileage"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
   end

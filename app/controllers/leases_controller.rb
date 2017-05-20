@@ -61,6 +61,10 @@ class LeasesController < ApplicationController
     end
   end
 
+  def projected_mileage
+    ((Date.today - @lease.initial_lease_date).to_f / (@lease.lease_term / 12.0 * 365.0) ) * (@lease.miles_per_year * (@lease.lease_term / 12))
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_lease
@@ -69,6 +73,6 @@ class LeasesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def lease_params
-      params.require(:lease).permit(:initial_lease_date, :miles_per_year, :lease_term)
+      params.require(:lease).permit(:initial_lease_date, :miles_per_year, :lease_term, :projected_mileage)
     end
 end
