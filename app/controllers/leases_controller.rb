@@ -5,11 +5,16 @@ class LeasesController < ApplicationController
   # GET /leases.json
   def index
     @leases = Lease.all
+    @leases.each do |lease|
+      lease.projected_mileage = projected_mileage(lease)
+    end
   end
 
   # GET /leases/1
   # GET /leases/1.json
   def show
+    @lease.projected_mileage = projected_mileage(@lease)
+
   end
 
   # GET /leases/new
@@ -61,8 +66,8 @@ class LeasesController < ApplicationController
     end
   end
 
-  def projected_mileage
-    ((Date.today - @lease.initial_lease_date).to_f / (@lease.lease_term / 12.0 * 365.0) ) * (@lease.miles_per_year * (@lease.lease_term / 12))
+  def projected_mileage(lease)
+    ((Date.today - lease.initial_lease_date).to_f / (lease.lease_term / 12.0 * 365.0) ) * (lease.miles_per_year * (lease.lease_term / 12))
   end
 
   private

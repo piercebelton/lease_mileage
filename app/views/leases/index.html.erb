@@ -8,6 +8,7 @@
       <th>Initial lease date |</th>
       <th>Miles per year |</th>
       <th>Lease term |</th>
+      <th>Projected Mileage</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,6 +19,7 @@
         <td><%= lease.initial_lease_date %></td>
         <td><%= lease.miles_per_year %></td>
         <td><%= lease.lease_term %></td>
+        <td><%= lease.projected_mileage %></td>
         <td><%= link_to 'Show', lease %></td>
         <td><%= link_to 'Edit', edit_lease_path(lease) %></td>
         <td><%= link_to 'Destroy', lease, method: :delete, data: { confirm: 'Are you sure?' } %></td>
