@@ -1,5 +1,6 @@
 class LeasesController < ApplicationController
   before_action :set_lease, only: [:show, :edit, :update, :destroy]
+  # before_action :authenticate_user!
 
   # GET /leases
   # GET /leases.json
@@ -29,7 +30,7 @@ class LeasesController < ApplicationController
   # POST /leases
   # POST /leases.json
   def create
-    @lease = Lease.new(lease_params)
+    @lease = current_user.leases.build(lease_params)
 
     respond_to do |format|
       if @lease.save
