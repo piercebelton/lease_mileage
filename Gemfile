@@ -20,7 +20,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
-
+# Devise for authentication
 gem 'devise'
 
 # Use jquery as the JavaScript library
@@ -40,6 +40,15 @@ gem 'jbuilder', '~> 2.5'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  # rspec for testing
+  gem 'rspec-rails'
+end
+
+group :test do
+  gem 'capybara'
+  gem 'rspec-example_steps'
+  gem 'launchy'
+  gem 'selenium-webdriver'
 end
 
 group :development do

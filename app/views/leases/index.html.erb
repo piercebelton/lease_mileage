@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Leases</h1>
-
+<h3>Welcome to Lease Mileage Calculator!</h3>
+<br/>
 <table>
   <thead>
     <tr>
@@ -35,5 +35,5 @@
 <% if user_signed_in? %>
   <%= link_to 'New Lease', new_lease_path %>
 <% else %>
-  <p>You must log in to create a lease</p>
+  <p>Log in or sign up to add your own!</p>
 <% end %>
