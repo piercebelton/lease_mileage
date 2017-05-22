@@ -42,6 +42,8 @@ group :development, :test do
   gem 'byebug', platform: :mri
   # rspec for testing
   gem 'rspec-rails'
+  # factory girl to replace fixtures
+  gem 'factory_girl_rails'
 end
 
 group :test do
