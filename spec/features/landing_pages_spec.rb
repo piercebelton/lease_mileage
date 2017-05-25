@@ -54,9 +54,9 @@ RSpec.feature "LandingPages", type: :feature do
         fill_in('Password', :with => '123456')
         click_button("Log in")
       end
-      And 'I see a confirmation message with my email' do
-        expect(page).to have_content("a@b.com Signed in successfully")
-      end
+      # And 'I see a confirmation message with my email' do
+      #   expect(page).to have_content("a@b.com Signed in successfully")
+      # end
     end
   end
 end
