@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :wages
   get 'landing_page/index'
 
   resources :leases
