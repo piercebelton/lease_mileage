@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'landing_page/index'
+
   resources :leases
 
   devise_for :users
@@ -6,7 +8,7 @@ Rails.application.routes.draw do
     get :get_leases
   end
 
-  root 'leases#index'
+  root 'landing_page#index'
 
   get '/index' => 'leases#index'
 
