@@ -5,6 +5,9 @@ class WagesController < ApplicationController
   # GET /wages.json
   def index
     @wages = Wage.all
+    @wages.each do |wage|
+      wage.billable = billable(wage)
+    end
   end
 
   # GET /wages/1
@@ -58,6 +61,12 @@ class WagesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to wages_url, notice: 'Wage was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def billable(wage)
+    if (wage.time_logged != nil)
+      (wage.time_logged.seconds_since_midnight / 3600.0 * wage.hourly_rate)
     end
   end
 
