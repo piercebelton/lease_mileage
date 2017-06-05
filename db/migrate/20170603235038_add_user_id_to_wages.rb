@@ -1,8 +1,5 @@
 class AddUserIdToWages < ActiveRecord::Migration[5.0]
   def change
-    add_foreign_key :wages, :users
+    add_reference :wages, :users, foreign_key: true
   end
 end
-
-
-# , column: :user_id, primary_key: "user_id"

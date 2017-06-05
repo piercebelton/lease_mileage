@@ -27,7 +27,7 @@ class WagesController < ApplicationController
   # POST /wages
   # POST /wages.json
   def create
-    @wage = Wage.new(wage_params)
+    @wage = current_user.wages.build(wage_params)
 
     respond_to do |format|
       if @wage.save
