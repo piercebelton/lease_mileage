@@ -1,3 +1,31 @@
 // Place all the styles related to the lease controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import url('https://fonts.googleapis.com/css?family=BenchNine:700|Signika:300|PT+Sans');
+
+body{
+  background-color: #CCDBFF !important;
+}
+
+.lease-btn{
+  margin: .5em;
+}
+
+.lease-td{
+  font-family: 'Signika', sans-serif;
+  font-size: 2em;
+  margin: .5em;
+}
+
+table.table-bordered{
+  border-color: #0042ad;
+}
+
+table.table-bordered > thead > tr > th{
+  border-color: #0042ad;
+}
+
+table.table-bordered > tbody > tr > td{
+  border-color: #0042ad;
+}

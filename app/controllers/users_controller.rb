@@ -4,6 +4,10 @@ class UsersController < ApplicationController
     # @leases = Lease.find_by()
   end
 
+  def index
+    
+  end
+
   private
 
     #Use callbacks to share common setup or constraints between actions
