@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170605062636) do
+ActiveRecord::Schema.define(version: 20190403162605) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,8 @@ ActiveRecord::Schema.define(version: 20170605062636) do
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.integer  "user_id"
+    t.string   "name"
+    t.integer  "current_mileage"
     t.index ["user_id"], name: "index_leases_on_user_id", using: :btree
   end
 
@@ -43,17 +45,5 @@ ActiveRecord::Schema.define(version: 20170605062636) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
-  create_table "wages", force: :cascade do |t|
-    t.date     "date"
-    t.time     "time_logged"
-    t.integer  "hourly_rate"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.float    "billable"
-    t.integer  "user_id"
-    t.index ["user_id"], name: "index_wages_on_user_id", using: :btree
-  end
-
   add_foreign_key "leases", "users"
-  add_foreign_key "wages", "users"
 end

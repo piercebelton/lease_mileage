@@ -13,7 +13,6 @@
   </head>
 
   <body>
-    <% unless controller_name == "landing_page" %>
       <nav class="navbar navbar-default">
         <div class="container-fluid">
           <!-- Brand and toggle get grouped for better mobile display -->
@@ -43,7 +42,6 @@
           </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
       </nav>
-    <% end %>
     <%= flash[:alert] %>
     <%= flash[:notice] %>
     <%= yield %>
