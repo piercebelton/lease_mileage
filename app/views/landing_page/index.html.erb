@@ -2,17 +2,21 @@
 
   <div class="row">
     <div class="col-md-10 col-md-offset-1">
-      <h3>Welcome to the Lease Mileage Calculator!</h3>
       <p class="p-main">
-        This app was created for anyone who is currently leasing a car, and wonders if they will be over the allotted amount of miles at the end of their lease. Enter in your initial lease date, miles per year, and lease term, and the app will return the exact mileage your car should have based on today's date.
+        Welcome to OnTrack!
+      </p>
+      <p class="p-main">
+        This app was created for anyone who leases a car, and wants to stay within their alloted miles.
+      </p>
+      <p class="p-main">
+        Simply provide your initial lease date, miles per year, and lease term (in months), and you will get the exact mileage your car should have today. You will also be provided with an amount of miles you can drive per day, week, and month, without exceeding the limit!
       </p>
 
-      <button class="page-scroll btn btn-info" />
-        <% if user_signed_in? %>
-          <a href="leases#index">Get Started!</a>
-        <% else %>
-          <%= link_to "Get Started!", new_user_registration_path %>
-        <% end %>
+      <% if user_signed_in? %>
+        <%= button_to 'Get Started!', leases_path, method: :get, class: 'btn btn-primary lease-btn start-btn' %>
+      <% else %>
+        <%= button_to 'Get Started!', new_user_registration_path, method: :get, class: 'btn btn-primary lease-btn start-btn' %>
+      <% end %>
 
     </div>
   </div>

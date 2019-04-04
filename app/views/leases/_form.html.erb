@@ -12,6 +12,11 @@
   <% end %>
 
   <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
     <%= f.label :initial_lease_date %>
     <%= f.date_select :initial_lease_date %>
   </div>
@@ -24,6 +29,11 @@
   <div class="field">
     <%= f.label :lease_term %>
     <%= f.number_field :lease_term %>
+  </div>
+
+  <div class="field">
+    <%= f.label :current_mileage %>
+    <%= f.number_field :current_mileage %>
   </div>
 
   <div class="actions">
