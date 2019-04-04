@@ -8,7 +8,9 @@ class Lease < ApplicationRecord
   end
 
   def days_into_lease
-    (Date.today - initial_lease_date).to_f
+    days = (Date.today - initial_lease_date).to_f
+    days = 1.0 if days == 0.0
+    days
   end
 
   def total_allotted_miles
