@@ -2,18 +2,39 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-@import url('https://fonts.googleapis.com/css?family=BenchNine:700|Signika:300|PT+Sans');
+@import url('https://fonts.googleapis.com/css?family=BenchNine:700|Signika:300|Lato|PT+Sans');
 
-body{
-  background-color: #EAF0FF !important;
+$header: 'Lato', sans-serif;
+$main: 'Signika', sans-serif;
+
+input{
+  font-family: $main;
+  font-size: 1.5em;
+}
+
+label{
+  font-family: $header;
+  font-size: 1.5em;
+  margin-top: 1.5em;
+  margin-bottom: .5em;
 }
 
 .lease-btn{
   margin: .5em;
 }
 
+.actions{
+  margin-top: 3em;
+}
+
+ .lease-th{
+   font-family: $header;
+   font-size: 2em;
+   margin: .2em;
+ }
+
 .lease-td{
-  font-family: 'Signika', sans-serif;
+  font-family: $main;
   font-size: 2em;
   margin: .5em;
 }
@@ -29,4 +50,20 @@ table.table-bordered > thead > tr > th{
 
 table.table-bordered > tbody > tr > td{
   border-color: #0042ad;
+}
+
+.section-box {
+  background-color: #EFEFEF;
+  padding: 5px;
+  border: 1px solid #EFEFEF;
+  border-radius: 2px;
+  margin: 15px;
+}
+
+.row-tall {
+ display: -webkit-box;
+ display: -webkit-flex;
+ display: -ms-flexbox;
+ display: flex;
+ flex-wrap: wrap;
 }
