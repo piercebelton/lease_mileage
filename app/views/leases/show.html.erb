@@ -3,11 +3,12 @@
 <section id="counter">
   <div class="container-fluid">
     <div class="row row-tall section-box">
-      <div class="col-md-4">
+      <div class="col-md-3">
         <h3>Lease Info</h3>
         <%= render 'form', lease: @lease %>
+        <%= button_to 'Back', leases_path, method: :get, class: 'btn btn-primary lease-btn back-btn' %>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-5">
         <h3>You are...</h3><br>
         <% if @lease.on_track? %>
           <h3>&#9989 OnTrack! </h3><br>
@@ -46,8 +47,5 @@
           </table>
         </div>
     </div> <!-- end section -->
-    <% if @lease.user == current_user %>
-    <%= button_to 'Back', leases_path, method: :get, class: 'btn btn-primary lease-btn' %>
-    <% end %>
   </div> <!-- end info container -->
 </section>

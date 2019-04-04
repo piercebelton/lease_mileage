@@ -12,7 +12,7 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %>
+    <%= f.label "Name your vehicle" %>
     <%= f.text_field :name %>
   </div>
 
@@ -27,8 +27,8 @@
   </div>
 
   <div class="field">
-    <%= f.label :lease_term %>
-    <%= f.number_field :lease_term %>
+    <%= f.label "Lease Term (months)" %>
+    <%= f.select :lease_term, [6, 12, 18, 24, 30, 36, 42, 48, 54, 60]%>
   </div>
 
   <div class="field">
@@ -37,6 +37,6 @@
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit :class => "btn btn-success"%>
   </div>
 <% end %>
