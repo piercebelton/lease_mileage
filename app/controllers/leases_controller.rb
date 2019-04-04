@@ -9,13 +9,14 @@ class LeasesController < ApplicationController
     @leases.each do |lease|
       lease.projected_mileage
     end
+    @user_leases = []
+    @leases.each{ |lease| @user_leases << lease if lease.user == current_user}
   end
 
   # GET /leases/1
   # GET /leases/1.json
   def show
     @lease.projected_mileage
-
   end
 
   # GET /leases/new

@@ -14,7 +14,7 @@
   </thead>
 
   <tbody>
-    <% @leases.each do |lease| %>
+    <% @user_leases.each do |lease| %>
       <tr onclick="location.href='<%= lease_path(lease) %>'">
         <td class="lease-td"><%= lease.name %></td>
         <td class="lease-td"><%= lease.miles_per_year %></td>
