@@ -21,8 +21,8 @@
         <td class="lease-td"><%= lease.lease_term %></td>
         <td class="lease-td"><%= lease.projected_mileage %></td>
         <% if lease.user == current_user %>
-          <td class="btn-toolbar"><%= button_to 'Edit', edit_lease_path(lease), method: :get, class: 'btn btn-primary lease-btn' %>
-          <%= button_to 'Destroy', lease, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger lease-btn' %></td>
+          <td class="btn-toolbar"><%= button_to 'Edit', lease_path(lease), method: :get, class: 'btn btn-primary lease-btn' %>
+          <%= button_to 'Delete', lease, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger lease-btn' %></td>
         <% end %>
       </tr>
     <% end %>
