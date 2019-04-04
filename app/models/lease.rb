@@ -1,6 +1,7 @@
 class Lease < ApplicationRecord
   belongs_to :user
-  validates :initial_lease_date, :miles_per_year, :lease_term, :presence => true
+  validates :name, :initial_lease_date, :miles_per_year, :lease_term, :current_mileage, :presence => true
+  validates :miles_per_year, :lease_term, :current_mileage, numericality: { only_integer: true }
 
   def projected_mileage
      (days_into_lease / (lease_term / 12.0 * 365.0) * total_allotted_miles).to_i
