@@ -1,6 +1,8 @@
 <body>
-
   <div class="row">
+    <div class="col-md-10 col-md-offset-1 flag"/>
+  </div>
+  <div class="row bg">
     <div class="col-md-10 col-md-offset-1">
       <p class="p-main">
         Welcome to OnTrack!
@@ -12,11 +14,13 @@
         Simply provide your initial lease date, miles per year, and lease term (in months), and you will get the exact mileage your car should have today. You will also be provided with an amount of miles you can drive per day, week, and month, without exceeding the limit!
       </p>
 
-      <% if user_signed_in? %>
-        <%= button_to 'Get Started!', leases_path, method: :get, class: 'btn btn-primary lease-btn start-btn' %>
-      <% else %>
-        <%= button_to 'Get Started!', new_user_registration_path, method: :get, class: 'btn btn-primary lease-btn start-btn' %>
-      <% end %>
+      <div class="start-btn">
+        <% if user_signed_in? %>
+        <%= button_to 'Get Started!', leases_path, method: :get, class: 'btn-lg btn-primary lease-btn' %>
+        <% else %>
+        <%= button_to 'Get Started!', new_user_registration_path, method: :get, class: 'btn btn-primary lease-btn' %>
+        <% end %>
+      </div>
 
     </div>
   </div>

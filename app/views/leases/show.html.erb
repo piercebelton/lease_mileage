@@ -1,47 +1,48 @@
-<p id="notice"><%= notice %></p>
-
-
 
 <!-- Info Container -->
-<div class="container-fluid">
-  <div class="row row-tall section-box">
-    <div class="col-md-6">
-      <h3>Lease Info</h3>
-      <%= render 'form', lease: @lease %>
-    </div>
-    <!-- info column -->
-    <div class="col-md-6">
-      <h3>Below find the amount of miles you are able to drive for a given time period, without going over:</h3><br><br>
-      <table class="table table-responsive table-hover table-bordered">
-        <tbody>
-          <tr>
-            <td class="lease-td">Day</td>
-            <td class="lease-td"><%= @lease.miles_left_per_day %></td>
-          </tr>
-          <tr>
-            <td class="lease-td">Week</td>
-            <td class="lease-td"><%= @lease.miles_left_per_week %></td>
-          </tr>
-          <tr>
-            <td class="lease-td">Month</td>
-            <td class="lease-td"><%= @lease.miles_left_per_month %></td>
-          </tr>
-          <tr>
-            <td class="lease-td">Total</td>
-            <td class="lease-td"><%= @lease.miles_remaining %></td>
-          </tr>
-        </tbody>
-      </table>
-
-      <h4>Based on the data you provided, it looks like you are...</h4>
-      <% if @lease.on_track? %>
-        <h4>OnTrack! Well done, keep your driving habits similar and you won't pay any over-mileage fees!</h4>
-      <% else %>
-        <h4>not OnTrack :( Based on your current driving habits, it looks like you will be over by roughly <%=@lease.projected_miles_over%> miles. Depending on your lease agreement, this could cost you between <%=@lease.estimated_overage_cost%>!</h4>
-      <% end %>
-    </div>
-  </div> <!-- end section -->
-  <% if @lease.user == current_user %>
-  <%= button_to 'Back', leases_path, method: :get, class: 'btn btn-primary lease-btn' %>
-  <% end %>
-</div> <!-- end info container -->
+<section id="counter">
+  <div class="container-fluid">
+    <div class="row row-tall section-box">
+      <div class="col-md-4">
+        <h3>Lease Info</h3>
+        <%= render 'form', lease: @lease %>
+      </div>
+      <div class="col-md-4">
+        <h3>You are...</h3><br>
+        <% if @lease.on_track? %>
+        <h3>&#9989OnTrack! </h3>
+          <h4 class="show-page-h4">Well done, keep your driving habits similar and you won't pay any over-mileage fees!<h4>
+        <% else %>
+          <h4 class="show-page-h4">not OnTrack :( Based on your current driving habits, it looks like you will be over by roughly <%=@lease.projected_miles_over%> miles. Depending on your lease agreement, this could cost you between <%=@lease.estimated_overage_cost%>!</h4>
+        <% end %>
+      </div>
+      <!-- info column -->
+        <div class="col-md-4">
+          <h3>Miles Remaining Per:</h3><br><br>
+          <table class="table table-responsive table-hover table-bordered">
+            <tbody>
+              <tr>
+                <td class="lease-td">Day</td>
+                <td class="lease-td counter"><%= @lease.miles_left_per_day %></td>
+              </tr>
+              <tr>
+                <td class="lease-td">Week</td>
+                <td class="lease-td counter"><%= @lease.miles_left_per_week %></td>
+              </tr>
+              <tr>
+                <td class="lease-td">Month</td>
+                <td class="lease-td counter"><%= @lease.miles_left_per_month %></td>
+              </tr>
+              <tr class="important-tr">
+                <td class="lease-td"><b>Total</b></td>
+                <td class="lease-td counter"><b><%= @lease.miles_remaining %></b></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+    </div> <!-- end section -->
+    <% if @lease.user == current_user %>
+    <%= button_to 'Back', leases_path, method: :get, class: 'btn btn-primary lease-btn' %>
+    <% end %>
+  </div> <!-- end info container -->
+</section>
