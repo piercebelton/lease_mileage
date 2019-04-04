@@ -2,6 +2,7 @@ class Lease < ApplicationRecord
   belongs_to :user
   validates :name, :initial_lease_date, :miles_per_year, :lease_term, :current_mileage, :presence => true
   validates :miles_per_year, :lease_term, :current_mileage, numericality: { only_integer: true }
+  validate :int_fields_not_zero
 
   def projected_mileage
      (days_into_lease / (lease_term / 12.0 * 365.0) * total_allotted_miles).to_i
@@ -50,6 +51,16 @@ class Lease < ApplicationRecord
     low = (overage * 0.15).to_i
     high = (overage * 0.3).to_i
     "$#{low} and $#{high}"
+  end
+
+  def int_fields_not_zero
+     if miles_per_year == 0
+       errors.add(:miles_per_year, "Must not be 0")
+     elsif lease_term == 0
+       errors.add(:lease_term, "Must not be 0")
+     elsif current_mileage == 0
+       errors.add(:current_mileage, "Must not be 0")
+     end
   end
 
 end
